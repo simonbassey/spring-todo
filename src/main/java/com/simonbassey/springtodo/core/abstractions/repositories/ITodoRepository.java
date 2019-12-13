@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.simonbassey.springtodo.core.domain.entities.Todo;
 
-public interface TodoRepository {
+public interface ITodoRepository {
 	Todo addTodo(Todo todo);
 	Todo getTodo(int todoId);
 	boolean updateTodo(int todoId, Todo todo);

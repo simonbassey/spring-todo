@@ -5,7 +5,7 @@ import java.util.List;
 import com.simonbassey.springtodo.core.domain.entities.ApplicationUser;
 
 
-public interface UserService {
+public interface IUserService {
 	ApplicationUser createUser(ApplicationUser user);
 	ApplicationUser getUser(String userId);
 	ApplicationUser getUserByEmail(String emailAddress);
