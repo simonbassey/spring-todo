@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 @Table(name = "users")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class User {
+public class ApplicationUser {
 
 	@Id
 	@GeneratedValue(generator="system-uuid")
@@ -42,13 +42,13 @@ public class User {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	public User() {
+	public ApplicationUser() {
 		// TODO Auto-generated constructor stub
 	}
-	public User(String fName, String lName, String email) {
+	public ApplicationUser(String fName, String lName, String email) {
 		this(fName, lName, email, "");
 	}
-	public User(String fName, String lName, String email, String pword) {
+	public ApplicationUser(String fName, String lName, String email, String pword) {
 		firstName = fName;
 		lastName = lName;
 		this.email = email;

@@ -21,6 +21,23 @@ public class Todo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int todoId;
+	@Column(name="title")
+	private String title;
+	@Column(name = "detail")
+	private String description;
+	@Column(name="created")
+	private LocalDate createdDate;
+	@Column(name = "lastupdated")
+	private LocalDate lastUpdated;
+	@Column(name = "completed")
+	private boolean complete;
+	@Column(name = "userId")
+	private String userId;
+	
+	@JoinColumn(name = "userId", referencedColumnName = "userId", nullable = false, insertable = false, updatable = false)
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	private ApplicationUser user;
+	
 	public int getTodoId() {
 		return todoId;
 	}
@@ -57,31 +74,11 @@ public class Todo {
 	public void setComplete(boolean complete) {
 		this.complete = complete;
 	}
-	@Column(name="title")
-	private String title;
-	@Column(name = "detail")
-	private String description;
-	@Column(name="created")
-	private LocalDate createdDate;
-	@Column(name = "lastupdated")
-	private LocalDate lastUpdated;
-	@Column(name = "completed")
-	private boolean complete;
-	
-	
-	
-	@Column(name = "userId")
-	private String userId;
 	public void setUserId(String userId) { this.userId = userId;}
 	public String getUserId() {return this.userId;}
 	
-	
-	@JoinColumn(name = "userId", referencedColumnName = "userId", nullable = false, insertable = false, updatable = false)
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	private User user;
-	
-	public void setUser(User user) {this.user = user;}
-	public User getUser() {return this.user;}
+	public void setUser(ApplicationUser user) {this.user = user;}
+	public ApplicationUser getUser() {return this.user;}
 	
 	public Todo(String title_, String descriptionString) {
 		title = title_;
