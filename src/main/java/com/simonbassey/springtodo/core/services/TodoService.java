@@ -25,7 +25,6 @@ public class TodoService implements ITodoService {
 			Todo res = this._todoRepository.addTodo(todoEntity);
 			return res;
 		} catch (Exception e) {
-			// TODO: handle exception
 			throw e;
 		}
 	}
