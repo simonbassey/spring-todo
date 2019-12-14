@@ -5,16 +5,19 @@ import java.util.List;
 import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import com.simonbassey.springtodo.core.abstractions.repositories.ITodoRepository;
+import org.springframework.stereotype.Service;
+
+import com.simonbassey.springtodo.core.abstractions.repositories.TodoRepository;
 import com.simonbassey.springtodo.core.abstractions.services.ITodoService;
 import com.simonbassey.springtodo.core.domain.entities.Todo;
 
+@Service
 public class TodoService implements ITodoService {
 
-	private final ITodoRepository _todoRepository;
+	private final TodoRepository _todoRepository;
 	
-	@Autowired
-	public TodoService(ITodoRepository repository) {
+	//@Autowired
+	public TodoService(TodoRepository repository) {
 		_todoRepository = repository;
 	}
 	

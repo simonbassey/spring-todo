@@ -3,19 +3,20 @@ package com.simonbassey.springtodo.core.services;
 import java.util.List;
 import java.util.Objects;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import com.simonbassey.springtodo.core.abstractions.repositories.IUserRepository;
+import com.simonbassey.springtodo.core.abstractions.repositories.UserRepository;
 import com.simonbassey.springtodo.core.abstractions.services.IUserService;
 import com.simonbassey.springtodo.core.domain.entities.ApplicationUser;
 
+@Service
 public class UserService<PasswordEncoder> implements IUserService {
 	
-	private final IUserRepository _userRepository;
+	private final UserRepository _userRepository;
 	//private final PasswordEncoder _passwordEncoder;
 	
-	@Autowired
-	public UserService(IUserRepository userRepository) {
+	
+	public UserService(final UserRepository userRepository) {
 		_userRepository = userRepository;
 	}
 	@Override
