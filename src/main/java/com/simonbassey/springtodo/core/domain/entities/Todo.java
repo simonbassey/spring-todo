@@ -86,6 +86,11 @@ public class Todo {
 		createdDate = LocalDate.now();
 	}
 	
+	public Todo withUserId(String userId) {
+		this.userId = userId;
+		return this;
+	}
+	
 	public Todo() {
 	}
 }
