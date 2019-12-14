@@ -3,19 +3,16 @@ package com.simonbassey.springtodo.infrastructure.data.repositories;
 import java.util.List;
 import java.util.Objects;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
-import org.springframework.stereotype.Repository;
 
-import com.simonbassey.springtodo.core.abstractions.repositories.ITodoRepository;
+import com.simonbassey.springtodo.core.abstractions.repositories.TodoRepository;
 import com.simonbassey.springtodo.core.domain.entities.Todo;
 
-@Repository
-public class TodoRepository implements ITodoRepository {
+//@Repository
+public class TodoRepositoryImpl implements TodoRepository {
 
 	private final SpringJpaTodoRepository _todoRepository;
-	@Autowired
-	public TodoRepository(SpringJpaTodoRepository repository) {
+	public TodoRepositoryImpl(SpringJpaTodoRepository repository) {
 		_todoRepository = repository;
 	}
 	

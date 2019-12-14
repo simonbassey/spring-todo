@@ -4,19 +4,18 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-import com.simonbassey.springtodo.core.abstractions.repositories.IUserRepository;
+import com.simonbassey.springtodo.core.abstractions.repositories.UserRepository;
 import com.simonbassey.springtodo.core.domain.entities.ApplicationUser;
 
 @Repository
-public class UserRepository implements IUserRepository {
+public class UserRepositoryImpl implements UserRepository {
 	
 	private final SpringJpaUserRepository _userRepository;
-	@Autowired
-	public UserRepository(SpringJpaUserRepository repository) {
+	public UserRepositoryImpl(final SpringJpaUserRepository repository) {
 		_userRepository = repository;
 	}
 	@Override
