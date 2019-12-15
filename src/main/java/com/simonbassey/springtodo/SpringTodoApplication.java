@@ -4,18 +4,21 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import com.simonbassey.springtodo.core.abstractions.repositories.TodoRepository;
 import com.simonbassey.springtodo.core.abstractions.repositories.UserRepository;
+import com.simonbassey.springtodo.core.abstractions.services.IUserService;
 import com.simonbassey.springtodo.infrastructure.data.repositories.SpringJpaTodoRepository;
 import com.simonbassey.springtodo.infrastructure.data.repositories.SpringJpaUserRepository;
 import com.simonbassey.springtodo.infrastructure.data.repositories.TodoRepositoryImpl;
 import com.simonbassey.springtodo.infrastructure.data.repositories.UserRepositoryImpl;
+import com.simonbassey.springtodo.infrastructure.security.AppUserDetailService;
 
 
 @EnableJpaRepositories({"com.simonbassey.springtodo.core.abstractions.repositories;","com.simonbassey.springtodo.infrastructure.data.repositories"})
-@SpringBootApplication(scanBasePackages = {"com.simonbassey.springtodo.api.controllers", "com.simonbassey.springtodo.core.services"})
+@SpringBootApplication(scanBasePackages = {"com.simonbassey.springtodo.api.controllers", "com.simonbassey.springtodo.core.services","com.simonbassey.springtodo.infrastructure.security", "com.simonbassey.springtodo.infrastructure.config"})
 @EntityScan(basePackages = {"com.simonbassey.springtodo.core.domain.entities"})
 public class SpringTodoApplication {
 

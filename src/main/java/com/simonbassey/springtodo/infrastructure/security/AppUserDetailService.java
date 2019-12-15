@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.simonbassey.springtodo.core.abstractions.services.IUserService;
 import com.simonbassey.springtodo.core.domain.entities.ApplicationUser;
 
+@Service
 public class AppUserDetailService implements UserDetailsService {
 
 	private final IUserService _userSevice;
