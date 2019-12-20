@@ -7,18 +7,23 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.simonbassey.springtodo.core.abstractions.services.IUserService;
 import com.simonbassey.springtodo.infrastructure.security.AppUserDetailService;
+import com.simonbassey.springtodo.infrastructure.security.AuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
 public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	private final AppUserDetailService _userDetailService;
-	public AppSecurityConfig(AppUserDetailService userService) {
+	private final AuthenticationFilter _authFilter;
+	public AppSecurityConfig(AppUserDetailService userService, AuthenticationFilter authenticationFilter) {
 		this._userDetailService = userService;
+		_authFilter = authenticationFilter;
 	}
 	
 	@Override
@@ -44,7 +49,9 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/api/accounts/create", "/api/auth/Token").anonymous()
 			.antMatchers("/api/**").fullyAuthenticated()
 			.and()
-			.httpBasic();
+			//.httpBasic();
+			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+		httpSecurity.addFilterBefore(_authFilter, UsernamePasswordAuthenticationFilter.class);
 	}
 
 }
