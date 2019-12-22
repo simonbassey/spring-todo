@@ -35,9 +35,7 @@ public class TodoService implements ITodoService {
 	@Override
 	public List<Todo> GetTodos() {
 		try {
-			List<Todo> todos = new ArrayList<>();
-			this._todoRepository.getTodos();
-			return todos;
+			return this._todoRepository.getTodos();
 		} catch (Exception e) {
 			throw e;
 		}
