@@ -11,7 +11,6 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.simonbassey.springtodo.core.abstractions.services.IUserService;
 import com.simonbassey.springtodo.infrastructure.security.AppUserDetailService;
 import com.simonbassey.springtodo.infrastructure.security.AuthenticationFilter;
 

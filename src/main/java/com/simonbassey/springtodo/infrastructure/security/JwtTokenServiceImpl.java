@@ -30,17 +30,6 @@ public class JwtTokenServiceImpl implements JwtTokenService {
 				.signWith(SignatureAlgorithm.HS512, _keySecret).compact();
 	}
 	
-	/*
-	private Map<String, Object> getClaimsFromUserDetails(UserDetails userDetails) {
-		var claimsList = new HashMap<String, Object>();
-		claimsList.put("subject", userDetails.getUsername());
-		List<String> roles = new ArrayList<>();
-		userDetails.getAuthorities().forEach(g->roles.add(g.getAuthority()));
-		claimsList.put("roles", roles);
-		return claimsList;
-	}
-	
-	*/
 	private Claims extraClaims(String token) {
 		return Jwts.parser().setSigningKey(_keySecret).parseClaimsJws(token).getBody();
 	}
@@ -69,4 +58,16 @@ public class JwtTokenServiceImpl implements JwtTokenService {
 		return !(username.isBlank() || username_.isBlank()) && username.equals(username_) && !isTokenExpired(token);
 	}
 
+
+	/*
+	private Map<String, Object> getClaimsFromUserDetails(UserDetails userDetails) {
+		var claimsList = new HashMap<String, Object>();
+		claimsList.put("subject", userDetails.getUsername());
+		List<String> roles = new ArrayList<>();
+		userDetails.getAuthorities().forEach(g->roles.add(g.getAuthority()));
+		claimsList.put("roles", roles);
+		return claimsList;
+	}
+	
+	*/
 }

@@ -1,7 +1,5 @@
 package com.simonbassey.springtodo.api.controllers;
 
-import java.util.List;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
